@@ -1,3 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import "tailwindcss";
 
-@import 'tailwindcss';
+@theme {
+  /* ผูกชื่อฟอนต์ */
+  --font-poppins: 'Poppins', sans-serif;
+
+  /* คู่สีหลัก */
+  --brand-primary: #005fea;
+  --brand-secondary: #00c2fa;
+  --brand-green: #00a372;        
+  --brand-red: #e5364b;
+
+  /* Gradient สำเร็จรูป */
+  --background-image-brand-gradient: linear-gradient(to right, var(--brand-secondary), var(--brand-primary));
+}
+
+/* 3. เซ็ตค่าเริ่มต้นของทั้งเว็บ */
+@layer base {
+  body {
+    @apply font-poppins text-gray-800 bg-gray-50;
+  }
+}
+
+/* 4. สร้าง Typography System ตาม Figma */
+@layer components {
+  /* --- Headlines --- */
+  .h1 { @apply text-[52px] leading-[60px] font-semibold; }
+  .h2 { @apply text-[40px] leading-[48px] font-semibold; }
+  .h3 { @apply text-[32px] leading-[40px] font-semibold; }
+  .h4 { @apply text-[24px] leading-[32px] font-semibold; }
+
+  /* --- Body Texts --- */
+  .body-1 { @apply text-[16px] leading-[24px] font-medium; }
+  .body-2 { @apply text-[14px] leading-[22px] font-medium; }
+  .body-3 { @apply text-[12px] leading-[18px] font-medium; }
+}
