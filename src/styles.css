@@ -6,13 +6,13 @@
   --font-poppins: 'Poppins', sans-serif;
 
   /* คู่สีหลัก */
-  --brand-primary: #005fea;
-  --brand-secondary: #00c2fa;
-  --brand-green: #00a372;        
-  --brand-red: #e5364b;
+  --color-brand-primary: #005fea;
+  --color-brand-secondary: #00c2fa;
+  --color-brand-green: #00a372;        
+  --color-brand-red: #e5364b;
 
   /* Gradient สำเร็จรูป */
-  --background-image-brand-gradient: linear-gradient(to right, var(--brand-secondary), var(--brand-primary));
+  --background-image-brand-gradient: linear-gradient(to right, var(--color-brand-secondary), var(--color-brand-primary));
 }
 
 /* 3. เซ็ตค่าเริ่มต้นของทั้งเว็บ */
