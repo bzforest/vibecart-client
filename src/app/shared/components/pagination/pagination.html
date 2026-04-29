@@ -1,0 +1,54 @@
+<nav class="flex items-center justify-center gap-2 select-none" aria-label="Pagination">
+  <!-- Previous Button -->
+  <button 
+    (click)="prev()"
+    [disabled]="currentPage() === 1"
+    class="flex items-center justify-center w-10 h-10 rounded-sm border border-gray-200 text-gray-400 hover:border-brand-primary hover:text-brand-primary disabled:opacity-30 disabled:hover:border-gray-200 disabled:hover:text-gray-400 transition-all cursor-pointer"
+    aria-label="Previous page"
+  >
+    <ng-icon name="lucideChevronLeft" size="20px"></ng-icon>
+  </button>
+
+  <!-- Page Numbers -->
+  @for (page of visiblePages(); track $index) {
+    @if (page === '...' && isJumping()) {
+      <!-- Jump to Page Input -->
+      <form (submit)="onJumpSubmit()" class="flex items-center">
+        <input 
+          type="number" 
+          [(ngModel)]="jumpValue"
+          name="jump"
+          class="w-12 h-10 text-center border border-brand-primary rounded-sm outline-none text-sm text-brand-primary"
+          autoFocus
+          (blur)="isJumping.set(false)"
+        />
+      </form>
+    } @else {
+      <button 
+        (click)="onPageClick(page)"
+        [class.bg-brand-primary]="page === currentPage()"
+        [class.text-white]="page === currentPage()"
+        [class.border-brand-primary]="page === currentPage()"
+        [class.border-gray-200]="page !== currentPage()"
+        [class.text-gray-600]="page !== currentPage()"
+        [class.hover:border-brand-primary]="page !== currentPage()"
+        [class.hover:text-brand-primary]="page !== currentPage()"
+        class="min-w-10 h-10 px-2 flex items-center justify-center rounded-sm border text-sm transition-all cursor-pointer"
+        [attr.aria-current]="page === currentPage() ? 'page' : null"
+        [attr.aria-label]="page === '...' ? 'Jump to page' : 'Page ' + page"
+      >
+        {{ page }}
+      </button>
+    }
+  }
+
+  <!-- Next Button -->
+  <button 
+    (click)="next()"
+    [disabled]="currentPage() === totalPages()"
+    class="flex items-center justify-center w-10 h-10 rounded-sm border border-gray-200 text-gray-400 hover:border-brand-primary hover:text-brand-primary disabled:opacity-30 disabled:hover:border-gray-200 disabled:hover:text-gray-400 transition-all cursor-pointer"
+    aria-label="Next page"
+  >
+    <ng-icon name="lucideChevronRight" size="20px"></ng-icon>
+  </button>
+</nav>
