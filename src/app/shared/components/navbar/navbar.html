@@ -1,0 +1,104 @@
+<nav class="py-3 px-6 bg-linear-to-b from-brand-primary to-brand-secondary">
+  <div class="container mx-auto">
+    <!-- Top Bar -->
+    <div class="flex justify-between body-2">
+      <div class="flex items-center gap-4">
+        <span class="text-white hover:text-gray-200 transition-colors cursor-pointer">{{
+          'NAVBAR.SELLER_CENTRE' | translate
+        }}</span>
+        <span class="text-white hover:text-gray-200 transition-colors cursor-pointer">{{
+          'NAVBAR.START_SELLING' | translate
+        }}</span>
+        <span class="text-white hover:text-gray-200 transition-colors cursor-pointer">{{
+          'NAVBAR.DOWNLOAD' | translate
+        }}</span>
+        <span class="text-white hover:text-gray-200 transition-colors cursor-pointer">{{
+          'NAVBAR.FOLLOW_US' | translate
+        }}</span>
+      </div>
+      <div class="flex gap-4">
+        <span class="text-white hover:text-gray-200 transition-colors cursor-pointer">{{
+          'NAVBAR.NOTIFICATIONS' | translate
+        }}</span>
+        <span class="text-white hover:text-gray-200 transition-colors cursor-pointer">{{
+          'NAVBAR.HELP' | translate
+        }}</span>
+        <div class="relative text-white flex items-center gap-1 cursor-pointer group">
+          <span>{{ currentLanguage() }}</span>
+          <ng-icon
+            name="lucideChevronDown"
+            class="transition-transform duration-200 group-hover:rotate-180"
+          />
+
+          <!-- Dropdown Menu -->
+          <div
+            class="absolute top-full right-0 w-32 bg-white text-sm hidden group-hover:block rounded-sm z-50 shadow-lg"
+          >
+            <div
+              (click)="setLanguage('English', 'en')"
+              class="px-4 py-2 text-gray-800 rounded-sm hover:text-brand-red hover:bg-gray-50 cursor-pointer"
+            >
+              English
+            </div>
+            <div
+              (click)="setLanguage('ภาษาไทย', 'th')"
+              class="px-4 py-2 text-gray-800 rounded-sm hover:text-brand-red hover:bg-gray-50 cursor-pointer"
+            >
+              ภาษาไทย
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-4 body-2">
+          <button class="text-white hover:text-gray-200 transition-colors cursor-pointer">
+            {{ 'NAVBAR.LOGIN' | translate }}
+          </button>
+          <div class="w-1 h-3 bg-white/40 self-center"></div>
+          <button class="text-white hover:text-gray-200 transition-colors cursor-pointer">
+            {{ 'NAVBAR.SIGNUP' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Bar -->
+    <div class="flex justify-between items-center gap-8">
+      <img
+        ngSrc="/vibelogo02.png"
+        alt="vibecart_logo"
+        width="130"
+        height="45"
+        class="cursor-pointer object-contain"
+        priority
+      />
+
+      <!-- Search Bar -->
+      <div class="relative flex-1">
+        <input
+          type="text"
+          [placeholder]="'NAVBAR.SEARCH_PLACEHOLDER' | translate"
+          class="w-full h-11 rounded-sm px-4 py-2 bg-white outline-none text-gray-800 shadow-sm"
+          (keyup.enter)="handleSearch($event)"
+        />
+        <button
+          class="absolute right-1 top-1/2 -translate-y-1/2 bg-brand-primary w-14 h-9 rounded-sm flex items-center justify-center text-white hover:bg-brand-primary/90 transition-colors cursor-pointer"
+        >
+          <ng-icon name="lucideSearch" size="20px" />
+        </button>
+      </div>
+
+      <!-- Cart -->
+      <button
+        class="relative flex items-center justify-center h-full w-10 text-white hover:text-gray-100 transition-transform hover:scale-110 cursor-pointer"
+      >
+        <ng-icon name="lucideShoppingCart" size="30px" />
+        @if (cartCount() > 0) {
+          <span
+            class="absolute -top-1.5 -right-2 flex items-center justify-center min-w-5 h-5 px-1 bg-white text-brand-primary text-[11px] font-bold rounded-full border border-brand-primary"
+          >
+            {{ cartCount() }}
+          </span>
+        }
+      </button>
+    </div>
+  </div>
+</nav>
