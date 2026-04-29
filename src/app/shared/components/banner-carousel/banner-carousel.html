@@ -1,0 +1,56 @@
+<div 
+  class="relative overflow-hidden group rounded-sm shadow-sm bg-gray-100"
+  [class]="width() + ' ' + height()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+>
+  <!-- Slides Container -->
+  <div 
+    class="flex h-full transition-transform duration-500 ease-in-out"
+    [style.transform]="'translateX(' + (-currentIndex() * 100) + '%)'"
+  >
+    @for (img of images(); track $index) {
+      <div class="relative flex-none w-full h-full">
+        <img 
+          [ngSrc]="img" 
+          alt="Ad Banner" 
+          fill
+          class="object-cover"
+          [priority]="$index === 0"
+        />
+      </div>
+    }
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button 
+    (click)="prev()"
+    class="absolute top-1/2 -translate-y-1/2 w-9 h-12 bg-black/15 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/30 cursor-pointer z-10"
+    aria-label="Previous slide"
+  >
+    <ng-icon name="lucideChevronLeft" size="28px"></ng-icon>
+  </button>
+
+  <button 
+    (click)="next()"
+    class="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-12 bg-black/15 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/30 cursor-pointer z-10"
+    aria-label="Next slide"
+  >
+    <ng-icon name="lucideChevronRight" size="28px"></ng-icon>
+  </button>
+
+  <!-- Dots Indicators -->
+  <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2.5 z-10">
+    @for (img of images(); track $index) {
+      <button 
+        (click)="goTo($index)"
+        class="w-2.5 h-2.5 rounded-full border border-white/20 transition-all cursor-pointer shadow-sm"
+        [class.bg-brand-primary]="$index === currentIndex()"
+        [class.bg-white/40]="$index !== currentIndex()"
+        [class.w-3]="$index === currentIndex()"
+        [class.h-3]="$index === currentIndex()"
+        [attr.aria-label]="'Go to slide ' + ($index + 1)"
+      ></button>
+    }
+  </div>
+</div>
