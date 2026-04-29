@@ -25,13 +25,95 @@
         ⚡ Few's Components
       </h2>
       
-      <div class="flex flex-col gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-        <div>
-            <h3 class="h4 text-gray-600 mb-4">1. Tab</h3>
+        <!-- Input Section -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="h4 text-gray-800 mb-6">1. Input Field</h3>
+            <div class="flex flex-col gap-6">
+              <vibecart-input 
+                label="ชื่อผู้ใช้" 
+                placeholder="กรอกชื่อผู้ใช้ของคุณ" 
+                [(value)]="inputText"
+              />
+              <vibecart-input 
+                label="อีเมล (มีข้อผิดพลาด)" 
+                placeholder="example@mail.com" 
+                error="รูปแบบอีเมลไม่ถูกต้อง"
+              />
+              <vibecart-input 
+                label="รหัสผ่าน (Disabled)" 
+                type="password"
+                placeholder="••••••••" 
+                [disabled]="true"
+              />
             </div>
-        
+            <p class="mt-4 text-sm text-gray-500">ค่าปัจจุบัน: {{ inputText() }}</p>
         </div>
+
+        <!-- Checkbox Section -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="h4 text-gray-800 mb-6">2. Checkbox</h3>
+            <div class="flex flex-col gap-4">
+              <vibecart-checkbox label="ยอมรับเงื่อนไขการใช้งาน" [(checked)]="isChecked" />
+              <vibecart-checkbox label="จดจำฉันในระบบ" [checked]="true" />
+              <vibecart-checkbox label="รับข่าวสารผ่านอีเมล (Disabled)" [disabled]="true" />
+            </div>
+            <p class="mt-4 text-sm text-gray-500">สถานะ: {{ isChecked() ? 'เลือกแล้ว' : 'ยังไม่ได้เลือก' }}</p>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 md:col-span-2">
+            <h3 class="h4 text-gray-800 mb-6">3. Tabs</h3>
+            <vibecart-tabs [options]="tabOptions" [(activeTab)]="activeTab" />
+            <div class="mt-6 p-10 bg-gray-50 rounded-lg text-center text-gray-500 border border-dashed border-gray-200">
+              เนื้อหาของ Tab: {{ activeTab() }}
+            </div>
+        </div>
+
+        <!-- Steps Section -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 md:col-span-2">
+            <h3 class="h4 text-gray-800 mb-6">4. Steps</h3>
+            <vibecart-steps [steps]="steps" [currentStep]="currentStep()" />
+            
+            <div class="flex gap-4 mt-10 justify-center">
+              <button 
+                (click)="currentStep.set(currentStep() - 1)" 
+                [disabled]="currentStep() === 0"
+                class="px-4 py-2 bg-gray-100 rounded-lg disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+              >
+                ย้อนกลับ
+              </button>
+              <button 
+                (click)="currentStep.set(currentStep() + 1)" 
+                [disabled]="currentStep() === steps.length - 1"
+                class="px-4 py-2 bg-brand-primary text-white rounded-lg disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+              >
+                ถัดไป
+              </button>
+            </div>
+        </div>
+
+        <!-- Select Section -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="h4 text-gray-800 mb-6">5. Selector</h3>
+            <div class="flex flex-col gap-6">
+              <vibecart-select 
+                label="ค้นหาในหมวดหมู่" 
+                [options]="selectOptions" 
+                [(value)]="selectedCategory"
+              />
+              
+              <vibecart-select 
+                label="ตัวเลือก (Disabled)" 
+                [options]="selectOptions" 
+                [disabled]="true"
+              />
+            </div>
+            <p class="mt-4 text-sm text-gray-500">ค่าที่เลือก: {{ selectedCategory() }}</p>
+        </div>
+        
+      </div>
     </section>
   
   
