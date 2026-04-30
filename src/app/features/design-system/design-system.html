@@ -10,12 +10,152 @@
       </h2>
       
       <div class="flex flex-col gap-10">
+
+        <h3 class="h4 text-gray-600 mb-4">1. Product Card</h3>
         
-        <div>
-          <h3 class="h4 text-gray-600 mb-4">1. Product Card</h3>
-          <app-product-card></app-product-card>
+        <div class="flex gap-4">
+          <app-product-card 
+            productName="ซองใส่พาสปอร์ต passport (ขุ่น/ใส) ปกพาสปอร์ต ซองใส่หนังสือเดินทาง แบบพกพา"
+            [price]="3"
+            soldCount="70พัน+"
+            [discountPercent]="63"
+            [isFreeShipping]="true"
+            [isRecommended]="true"
+            [isVibeCartSure]="true">
+          </app-product-card>
+        
+          <app-product-card 
+            productName="ขวดสเปรย์เปล่า 300 มล พร้อมหัวฉีดแรงดันสูง"
+            [price]="23"
+            soldCount="60พัน+">
+          </app-product-card>
+        
+          <app-product-card 
+            productName="กระเป๋าสะพายข้างผู้ชาย สไตล์เกาหลี"
+            [price]="150"
+            soldCount="2พัน+"
+            [isFreeShipping]="true">
+          </app-product-card>
+        </div>
+
+        <h3 class="h4 text-gray-600 mb-4">2. Coupon Cards</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <app-coupon-card 
+              theme="shipping"
+              logoUrl="/img/coupon/vibelogo02.png"
+              title="ส่งฟรี"
+              subtitle="ขั้นต่ำ ฿0"
+              expiryText="ใช้ได้ในอีก: 22 ชั่วโมง"
+              [tags]="['โค้ดส่งฟรี*', 'ใช้ผ่าน VibePay']"
+              [isNew]="true"
+              status="available">
+            </app-coupon-card>
+        
+            <app-coupon-card 
+              theme="shop"
+              logoUrl="/img/coupon/other_mock.jpg"
+              storeName="Lotus's - ลาดพร้าว"
+              title="ส่วนลด 50% ลดสูงสุด ฿150"
+              subtitle="ขั้นต่ำ ฿200"
+              expiryText="เหลือ 2 วัน"
+              [quantity]="2"
+              status="collected">
+            </app-coupon-card>
+        
+            <app-coupon-card 
+              theme="discount"
+              logoUrl="/img/coupon/vibelogo02.png"
+              title="ส่วนลด 30% ลดสูงสุด ฿100"
+              subtitle="ขั้นต่ำ ฿150"
+              expiryText="ใช้ได้ถึง 15 พ.ค. 2026"
+              [usagePercent]="80"
+              usageText="ใกล้หมด"
+              status="collected">
+            </app-coupon-card>
+        
+            <app-coupon-card 
+              theme="partner"
+              logoUrl="/img/coupon/other_mock.jpg"
+              title="เงินคืน 10% Coins"
+              subtitle="ไม่มีขั้นต่ำ"
+              expiryText="หมดอายุแล้วเมื่อ 2 ชั่วโมงที่แล้ว"
+              status="expired">
+            </app-coupon-card>
+        </div>
+
+        <h3 class="h4 text-gray-600 mb-4">3. Categories Card</h3>
+        
+        <div class="flex flex-wrap gap-0">
+          <app-categories-card 
+            categoryName="เสื้อผ้าแฟชั่นผู้ชาย" 
+            imageUrl="/img/categories/shirt.png">
+          </app-categories-card>
+    
+          <app-categories-card 
+            categoryName="อุปกรณ์อิเล็กทรอนิกส์" 
+            imageUrl="/img/categories/electronic-devices.png">
+          </app-categories-card>
+    
+          <app-categories-card 
+            categoryName="กีฬาและกิจกรรมกลางแจ้ง" 
+            imageUrl="/img/categories/sports.png">
+          </app-categories-card>
+        </div>
+
+        <h3 class="h4 text-gray-600 mb-6">4. Flashsale Cards</h3>
+
+        <div class="flex gap-4 bg-gray-50 p-4 border border-gray-200 rounded-md overflow-x-auto">
+    
+          <app-flashsale-card 
+            imageUrl="/img/categories/shirt.png"
+            [isMall]="true"
+            [discountPercent]="41"
+            [price]="195"
+            [soldCount]="135"
+            [totalStock]="150"
+            progressText="ขายแล้ว 135">
+          </app-flashsale-card>
+      
+          <app-flashsale-card 
+            imageUrl="/img/categories/electronic-devices.png"
+            [isMall]="true"
+            [discountPercent]="12"
+            [price]="883"
+            [soldCount]="12"
+            [totalStock]="200"
+            progressText="ขายแล้ว 12">
+          </app-flashsale-card>
+      
+          <app-flashsale-card 
+            imageUrl="/img/categories/sports.png"
+            [discountPercent]="59"
+            [price]="5228"
+            [soldCount]="93"
+            [totalStock]="100"
+            progressText="เหลือ 7 ชิ้น">
+          </app-flashsale-card>
+      
+        </div>
+
+        <h3 class="h4 text-gray-600 mb-6">5. Toggle Switches</h3>
+
+        <div class="flex flex-col gap-6 p-6 bg-white border border-gray-200 rounded-md">
+    
+          <!-- แบบมีข้อความ ขนาดปกติ (md) -->
+          <app-toggle-switch label="Airplane Mode"></app-toggle-switch>
+      
+          <!-- แบบเปิดไว้แต่แรก (checked="true") -->
+          <app-toggle-switch label="Dark Mode" [checked]="true"></app-toggle-switch>
+      
+          <!-- เทสขนาดต่างๆ -->
+          <div class="flex items-center gap-6 mt-4">
+            <app-toggle-switch size="sm" label="Small"></app-toggle-switch>
+            <app-toggle-switch size="lg" label="Large"></app-toggle-switch>
           </div>
-  
+      
+        </div>
+
       </div>
     </section>
   

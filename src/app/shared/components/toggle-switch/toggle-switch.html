@@ -1,0 +1,33 @@
+<label class="flex w-fit items-center gap-3 cursor-pointer group">
+  
+    <!-- กล่องสวิตช์หลัก -->
+    <button type="button" 
+            (click)="toggle()"
+            class="relative inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+            [class.bg-brand-primary]="checked"    
+            [class.bg-gray-300]="!checked"
+            [class.w-9]="size === 'sm'" [class.h-5]="size === 'sm'"
+            [class.w-11]="size === 'md'" [class.h-6]="size === 'md'"
+            [class.w-14]="size === 'lg'" [class.h-7]="size === 'lg'">
+      
+      <!-- ลูกกลมๆ สีขาว (Thumb) -->
+      <!-- สังเกตคลาส translate-x ที่จะขยับลูกกลมตามสถานะ checked -->
+      <span class="pointer-events-none inline-block rounded-full bg-white shadow-sm ring-0 transition duration-300 ease-in-out"
+            [class.translate-x-4]="checked && size === 'sm'"
+            [class.translate-x-5]="checked && size === 'md'"
+            [class.translate-x-7]="checked && size === 'lg'"
+            [class.translate-x-0]="!checked"
+            [class.h-4]="size === 'sm'" [class.w-4]="size === 'sm'"
+            [class.h-5]="size === 'md'" [class.w-5]="size === 'md'"
+            [class.h-6]="size === 'lg'" [class.w-6]="size === 'lg'">
+      </span>
+    </button>
+  
+    <!-- ข้อความ Label (ถ้ามีส่งมา) -->
+    @if (label) {
+      <span class="text-sm font-medium text-gray-700 select-none group-hover:text-gray-900 transition-colors">
+        {{ label }}
+      </span>
+    }
+  
+  </label>

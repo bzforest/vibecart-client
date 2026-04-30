@@ -1,0 +1,45 @@
+<div class="relative flex flex-col items-center bg-white w-full max-w-[180px] h-full pb-4 border border-transparent hover:border-brand-primary hover:shadow-lg transition-all cursor-pointer group">
+
+    <div class="relative w-full aspect-square flex items-center justify-center p-2 mt-2">
+      
+      @if (isMall) {
+        <div class="absolute top-0 left-0 bg-brand-red text-white text-[10px] font-bold px-1.5 py-px rounded-br-md z-10 shadow-sm">
+          Mall
+        </div>
+      }
+  
+      @if (discountPercent) {
+        <div class="discount-ribbon absolute top-0 right-0 bg-[#fce02d] text-brand-red flex flex-col items-center justify-start w-[36px] pt-1 pb-2 z-10">
+          <span class="text-[10px] font-medium leading-none mb-0.5">ลด</span>
+          <span class="text-[12px] font-bold leading-none">{{ discountPercent }}%</span>
+        </div>
+      }
+  
+      <img [src]="imageUrl" alt="Product" class="w-[85%] h-[85%] object-contain group-hover:scale-105 transition-transform duration-300">
+  
+      @if (promoTagUrl) {
+        <img [src]="promoTagUrl" alt="Promo" class="absolute bottom-0 left-0 h-[22px] z-10">
+      } @else {
+        <div class="absolute bottom-0 left-0 bg-linear-to-r from-brand-primary to-brand-secondary text-white text-[10px] font-bold px-2 py-0.5 rounded-tr-lg z-10 shadow-sm flex items-center gap-1 italic border border-brand-secondary">
+          ⚡ ชั่วโมงลดด่วน
+        </div>
+      }
+    </div>
+  
+    <div class="mt-2 text-center px-2">
+      <div class="text-brand-red font-bold text-lg flex items-start justify-center">
+        <span class="text-[12px] mt-1 mr-0.5">฿</span>{{ price }}
+      </div>
+    </div>
+  
+    <div class="w-[85%] h-[16px] mt-2 relative bg-orange-200 rounded-full flex items-center justify-center">
+      
+      <div class="absolute top-0 left-0 h-full bg-linear-to-r from-orange-400 to-brand-red rounded-full transition-all duration-500" 
+           [style.width.%]="progressPercent"></div>
+  
+      <span class="relative z-10 text-white text-[10px] font-bold drop-shadow-md">{{ progressText }}</span>
+  
+      <div class="absolute -left-2 top-1/2 -translate-y-1/2 text-[18px] z-10 drop-shadow-sm">🔥</div>
+    </div>
+  
+  </div>

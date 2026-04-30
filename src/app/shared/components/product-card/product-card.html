@@ -1,1 +1,44 @@
-<p>product-card works!</p>
+<div class="group flex flex-col bg-white border border-gray-200 hover:border-brand-primary hover:shadow-xl transition-all duration-200 cursor-pointer w-full max-w-[190px] h-full relative">
+
+    <div class="relative w-full aspect-square bg-gray-100 overflow-hidden shrink-0">
+      <img [src]="imageUrl" alt="Product Name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+  
+      @if (discountPercent) {
+        <div class="absolute top-0 right-0 bg-yellow-100 text-brand-red text-[10px] font-bold px-1 py-0.5">
+          -{{ discountPercent }}%
+        </div>
+      }
+  
+      @if (isFreeShipping) {
+        <div class="absolute bottom-0 left-0 bg-emerald-500 text-white text-[10px] font-medium px-1.5 py-0.5 rounded-tr-md">
+          ส่งฟรี
+        </div>
+      }
+    </div>
+  
+    <div class="p-2 flex flex-col grow">
+      
+      <div class="text-[13px] leading-[18px] text-gray-800 line-clamp-2 wrap-break-word">
+        @if (isRecommended) {
+          <span class="inline-block bg-brand-primary text-white text-[10px] px-1 rounded-sm mr-1 align-middle">ร้านแนะนำ</span>
+        }
+        {{ productName }}
+      </div>
+  
+      @if (isVibeCartSure) {
+        <div class="mt-1">
+          <span class="text-[10px] text-brand-primary border border-brand-primary px-1 rounded-sm">VibeCart ชัวร์</span>
+        </div>
+      }
+  
+      <div class="flex items-center justify-between mt-auto pt-2">
+        <div class="text-brand-primary font-semibold text-base">
+          <span class="text-xs font-normal mr-px">฿</span>{{ price }}
+        </div>
+        <div class="text-[10px] text-gray-500">
+          ขายได้ {{ soldCount }} ชิ้น
+        </div>
+      </div>
+  
+    </div>
+  </div>
