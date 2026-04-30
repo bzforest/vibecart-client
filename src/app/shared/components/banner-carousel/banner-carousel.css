@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+
+/* ปรับแต่งความโค้งมนของภาพใน Carousel */
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}

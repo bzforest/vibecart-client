@@ -1,0 +1,9 @@
+footer a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+footer h4 {
+  border-left: 3px solid var(--color-brand-primary);
+  padding-left: 12px;
+}
