@@ -1,0 +1,5 @@
+/* Add component-specific styles here if Tailwind is not enough */
+:host {
+  display: block;
+  width: 100%;
+}

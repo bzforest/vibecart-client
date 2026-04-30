@@ -1,0 +1,20 @@
+<div class="flex border-b border-gray-200">
+  @for (tab of options(); track tab.value) {
+    <button
+      (click)="selectTab(tab.value)"
+      class="px-6 py-3 body-2 font-semibold transition-all duration-200 relative cursor-pointer"
+      [class.text-brand-primary]="activeTab() === tab.value"
+      [class.text-gray-500]="activeTab() !== tab.value"
+      [class.hover:text-brand-primary]="activeTab() !== tab.value"
+    >
+      {{ tab.label }}
+      
+      @if (activeTab() === tab.value) {
+        <div 
+          class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary rounded-t-full transition-all duration-300"
+          layout-id="underline"
+        ></div>
+      }
+    </button>
+  }
+</div>

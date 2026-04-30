@@ -1,0 +1,24 @@
+<label 
+  class="flex items-center gap-3 cursor-pointer select-none group"
+  [class.opacity-50]="disabled()"
+  [class.cursor-not-allowed]="disabled()"
+  (click)="toggle()"
+>
+  <div 
+    class="w-5 h-5 rounded border-2 flex items-center justify-center transition-all duration-200"
+    [class.bg-brand-primary]="checked() && !disabled()"
+    [class.border-brand-primary]="checked() && !disabled()"
+    [class.border-gray-400]="!checked() && !disabled()"
+    [class.group-hover:border-brand-primary]="!checked() && !disabled()"
+  >
+    @if (checked()) {
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6 9 17l-5-5"/>
+      </svg>
+    }
+  </div>
+
+  @if (label()) {
+    <span class="body-2 text-gray-700">{{ label() }}</span>
+  }
+</label>
