@@ -261,14 +261,65 @@
       <h2 class="h2 text-brand-secondary border-b-2 border-gray-200 pb-4 mb-8">
         🚀 Champ's Components
       </h2>
-      
-      <div class="flex flex-col gap-10">
 
-        <div>
-            <h3 class="h4 text-gray-600 mb-4">1. Navbar</h3>
-            </div>
-        
+      <!-- Navbar -->
+      <div class="flex flex-col gap-4 mb-4">
+          <h3 class="h4 text-gray-600">1. Navbar</h3>
+          <div class="-mx-10">
+            <app-navbar />
+          </div>
+      </div>
+
+      <!-- Button -->
+      <div class="flex flex-col gap-4">
+        <h3 class="h4 text-gray-600 mb-4">2. Button</h3>
+        <!-- Type -->
+        <div class="space-y-8">
+          <div class="flex flex-wrap items-center gap-4">
+            <app-button text="Primary" type="primary"></app-button>
+            <app-button text="Secondary" type="secondary"></app-button>
+            <app-button text="Destructive" type="destructive"></app-button>
+            <app-button text="Ghost" type="ghost"></app-button>
+          </div>
+
+          <!-- Size -->
+          <div class="flex flex-wrap items-end gap-4">
+            <app-button text="Small Button" size="sm"></app-button>
+            <app-button text="Medium Button" size="md"></app-button>
+            <app-button text="Large Button" size="lg"></app-button>
+          </div>
+
+          <!-- State -->
+          <div class="flex flex-wrap items-center gap-4">
+            <app-button text="Processing..." [isLoading]="true"></app-button>
+            <app-button text="Disabled Button" [isDisabled]="true"></app-button>
+          </div>
         </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex flex-col gap-4 mt-10 w-fit">
+        <h3 class="h4 text-gray-600 mb-4">3. Pagination</h3>
+        <div class="flex flex-col justify-center items-center gap-4 p-6 bg-white rounded-lg">
+          <p class="text-gray-500">Current Page: {{ currentPage() }} / 20</p>
+          <app-pagination 
+            [currentPage]="currentPage()" 
+            [totalPages]="8" 
+            (pageChange)="currentPage.set($event)"
+          ></app-pagination>
+        </div>
+      </div>
+      <!-- Banner Carousel -->
+      <div class="flex flex-col gap-4 mt-10 w-fit">
+        <h3 class="h4 text-gray-600 mb-4">4. Banner Carousel</h3>
+        <div class="flex flex-col justify-center items-center gap-4 p-2 bg-white rounded-lg">
+          <app-banner-carousel [images]="adImages()"></app-banner-carousel>
+        </div>
+      </div>
     </section>
   
+    <!-- Footer -->
+    <div class="-mx-10">
+      <app-footer />
+    </div>
   </div>

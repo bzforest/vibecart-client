@@ -1,5 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { ProductCard } from '../../shared/components/product-card/product-card';
+import { Button } from '../../shared/components/button/button';
+import { Navbar } from '../../shared/components/navbar/navbar';
+import { Pagination } from '../../shared/components/pagination/pagination';
+import { BannerCarousel } from '../../shared/components/banner-carousel/banner-carousel';
+import { Footer } from '../../shared/components/footer/footer';
 import { CouponCard } from '../../shared/components/coupon-card/coupon-card';
 import { CategoriesCard } from '../../shared/components/categories-card/categories-card';
 import { FlashsaleCard } from '../../shared/components/flashsale-card/flashsale-card';
@@ -14,6 +19,11 @@ import { VibecartSelect, SelectOption } from '../../shared/components/select/sel
   selector: 'app-design-system',
   imports: [
     ProductCard,
+    Button,
+    Navbar,
+    Pagination,
+    BannerCarousel,
+    Footer,
     CouponCard,
     CategoriesCard,
     FlashsaleCard,
@@ -54,4 +64,13 @@ export class DesignSystem {
     { label: 'ใน เครื่องใช้ไฟฟ้า', value: 'electronics' }
   ];
   selectedCategory = signal('men-fashion');
+
+  currentPage = signal(1);
+  adImages = signal([
+    '/images/ads/ad1.png',
+    '/images/ads/ad2.png',
+    '/images/ads/ad3.png',
+    '/images/ads/ad4.png',
+    '/images/ads/ad5.png',
+  ]);
 }
