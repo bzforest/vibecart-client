@@ -1,5 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { ProductCard } from '../../shared/components/product-card/product-card';
+import { CouponCard } from '../../shared/components/coupon-card/coupon-card';
+import { CategoriesCard } from '../../shared/components/categories-card/categories-card';
+import { FlashsaleCard } from '../../shared/components/flashsale-card/flashsale-card';
+import { ToggleSwitch } from '../../shared/components/toggle-switch/toggle-switch';
 import { VibecartInput } from '../../shared/components/input/input';
 import { VibecartCheckbox } from '../../shared/components/checkbox/checkbox';
 import { VibecartTabs, TabOption } from '../../shared/components/tabs/tabs';
@@ -10,6 +14,10 @@ import { VibecartSelect, SelectOption } from '../../shared/components/select/sel
   selector: 'app-design-system',
   imports: [
     ProductCard,
+    CouponCard,
+    CategoriesCard,
+    FlashsaleCard,
+    ToggleSwitch,
     VibecartInput,
     VibecartCheckbox,
     VibecartTabs,
