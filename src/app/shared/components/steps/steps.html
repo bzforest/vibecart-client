@@ -1,0 +1,41 @@
+<div class="flex items-center w-full">
+  @for (step of steps(); track $index) {
+    <div class="flex items-center" [class.flex-1]="$index !== steps().length - 1">
+      <!-- Step Circle -->
+      <div class="flex flex-col items-center relative">
+        <div 
+          class="w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300 body-2 font-bold z-10"
+          [class.bg-brand-primary]="currentStep() >= $index"
+          [class.border-brand-primary]="currentStep() >= $index"
+          [class.text-white]="currentStep() >= $index"
+          [class.bg-white]="currentStep() < $index"
+          [class.border-gray-300]="currentStep() < $index"
+          [class.text-gray-500]="currentStep() < $index"
+        >
+          @if (currentStep() > $index) {
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"/>
+            </svg>
+          } @else {
+            {{ $index + 1 }}
+          }
+        </div>
+        
+        <div class="absolute top-12 whitespace-nowrap text-center">
+          <p class="body-2 font-bold" [class.text-brand-primary]="currentStep() >= $index" [class.text-gray-600]="currentStep() < $index">
+            {{ step.title }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Connector Line -->
+      @if ($index !== steps().length - 1) {
+        <div class="flex-1 h-1 mx-2 transition-all duration-500 rounded-full"
+          [class.bg-brand-primary]="currentStep() > $index"
+          [class.bg-gray-300]="currentStep() <= $index"
+        ></div>
+      }
+    </div>
+  }
+</div>
+<div class="h-16"></div> <!-- Spacer for absolute titles -->

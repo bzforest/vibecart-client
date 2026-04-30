@@ -1,0 +1,10 @@
+.new-flag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0 45px 45px 0; /* ขนาดสามเหลี่ยม */
+    border-color: transparent #ff0000 transparent transparent; /* ใช้สีแดงมุมขวาบน */
+    z-index: -1;
+  }

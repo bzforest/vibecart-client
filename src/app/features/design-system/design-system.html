@@ -1,0 +1,325 @@
+<div class="min-h-screen p-10 bg-gray-50">
+    <div class="text-center mb-16">
+      <h1 class="h1 text-primary mb-2">🎨 VibeCart Design System</h1>
+      <p class="body-1 text-gray-500">รวม UI Components ทั้งหมดของโปรเจค</p>
+    </div>
+  
+    <section class="mb-20">
+      <h2 class="h2 text-brand-secondary border-b-2 border-gray-200 pb-4 mb-8">
+        🔥 Best's Components
+      </h2>
+      
+      <div class="flex flex-col gap-10">
+
+        <h3 class="h4 text-gray-600 mb-4">1. Product Card</h3>
+        
+        <div class="flex gap-4">
+          <app-product-card 
+            productName="ซองใส่พาสปอร์ต passport (ขุ่น/ใส) ปกพาสปอร์ต ซองใส่หนังสือเดินทาง แบบพกพา"
+            [price]="3"
+            soldCount="70พัน+"
+            [discountPercent]="63"
+            [isFreeShipping]="true"
+            [isRecommended]="true"
+            [isVibeCartSure]="true">
+          </app-product-card>
+        
+          <app-product-card 
+            productName="ขวดสเปรย์เปล่า 300 มล พร้อมหัวฉีดแรงดันสูง"
+            [price]="23"
+            soldCount="60พัน+">
+          </app-product-card>
+        
+          <app-product-card 
+            productName="กระเป๋าสะพายข้างผู้ชาย สไตล์เกาหลี"
+            [price]="150"
+            soldCount="2พัน+"
+            [isFreeShipping]="true">
+          </app-product-card>
+        </div>
+
+        <h3 class="h4 text-gray-600 mb-4">2. Coupon Cards</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <app-coupon-card 
+              theme="shipping"
+              logoUrl="/img/coupon/vibelogo02.png"
+              title="ส่งฟรี"
+              subtitle="ขั้นต่ำ ฿0"
+              expiryText="ใช้ได้ในอีก: 22 ชั่วโมง"
+              [tags]="['โค้ดส่งฟรี*', 'ใช้ผ่าน VibePay']"
+              [isNew]="true"
+              status="available">
+            </app-coupon-card>
+        
+            <app-coupon-card 
+              theme="shop"
+              logoUrl="/img/coupon/other_mock.jpg"
+              storeName="Lotus's - ลาดพร้าว"
+              title="ส่วนลด 50% ลดสูงสุด ฿150"
+              subtitle="ขั้นต่ำ ฿200"
+              expiryText="เหลือ 2 วัน"
+              [quantity]="2"
+              status="collected">
+            </app-coupon-card>
+        
+            <app-coupon-card 
+              theme="discount"
+              logoUrl="/img/coupon/vibelogo02.png"
+              title="ส่วนลด 30% ลดสูงสุด ฿100"
+              subtitle="ขั้นต่ำ ฿150"
+              expiryText="ใช้ได้ถึง 15 พ.ค. 2026"
+              [usagePercent]="80"
+              usageText="ใกล้หมด"
+              status="collected">
+            </app-coupon-card>
+        
+            <app-coupon-card 
+              theme="partner"
+              logoUrl="/img/coupon/other_mock.jpg"
+              title="เงินคืน 10% Coins"
+              subtitle="ไม่มีขั้นต่ำ"
+              expiryText="หมดอายุแล้วเมื่อ 2 ชั่วโมงที่แล้ว"
+              status="expired">
+            </app-coupon-card>
+        </div>
+
+        <h3 class="h4 text-gray-600 mb-4">3. Categories Card</h3>
+        
+        <div class="flex flex-wrap gap-0">
+          <app-categories-card 
+            categoryName="เสื้อผ้าแฟชั่นผู้ชาย" 
+            imageUrl="/img/categories/shirt.png">
+          </app-categories-card>
+    
+          <app-categories-card 
+            categoryName="อุปกรณ์อิเล็กทรอนิกส์" 
+            imageUrl="/img/categories/electronic-devices.png">
+          </app-categories-card>
+    
+          <app-categories-card 
+            categoryName="กีฬาและกิจกรรมกลางแจ้ง" 
+            imageUrl="/img/categories/sports.png">
+          </app-categories-card>
+        </div>
+
+        <h3 class="h4 text-gray-600 mb-6">4. Flashsale Cards</h3>
+
+        <div class="flex gap-4 bg-gray-50 p-4 border border-gray-200 rounded-md overflow-x-auto">
+    
+          <app-flashsale-card 
+            imageUrl="/img/categories/shirt.png"
+            [isMall]="true"
+            [discountPercent]="41"
+            [price]="195"
+            [soldCount]="135"
+            [totalStock]="150"
+            progressText="ขายแล้ว 135">
+          </app-flashsale-card>
+      
+          <app-flashsale-card 
+            imageUrl="/img/categories/electronic-devices.png"
+            [isMall]="true"
+            [discountPercent]="12"
+            [price]="883"
+            [soldCount]="12"
+            [totalStock]="200"
+            progressText="ขายแล้ว 12">
+          </app-flashsale-card>
+      
+          <app-flashsale-card 
+            imageUrl="/img/categories/sports.png"
+            [discountPercent]="59"
+            [price]="5228"
+            [soldCount]="93"
+            [totalStock]="100"
+            progressText="เหลือ 7 ชิ้น">
+          </app-flashsale-card>
+      
+        </div>
+
+        <h3 class="h4 text-gray-600 mb-6">5. Toggle Switches</h3>
+
+        <div class="flex flex-col gap-6 p-6 bg-white border border-gray-200 rounded-md">
+    
+          <!-- แบบมีข้อความ ขนาดปกติ (md) -->
+          <app-toggle-switch label="Airplane Mode"></app-toggle-switch>
+      
+          <!-- แบบเปิดไว้แต่แรก (checked="true") -->
+          <app-toggle-switch label="Dark Mode" [checked]="true"></app-toggle-switch>
+      
+          <!-- เทสขนาดต่างๆ -->
+          <div class="flex items-center gap-6 mt-4">
+            <app-toggle-switch size="sm" label="Small"></app-toggle-switch>
+            <app-toggle-switch size="lg" label="Large"></app-toggle-switch>
+          </div>
+      
+        </div>
+
+      </div>
+    </section>
+  
+  
+    <section class="mb-20">
+      <h2 class="h2 text-brand-secondary border-b-2 border-gray-200 pb-4 mb-8">
+        ⚡ Few's Components
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+        <!-- Input Section -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="h4 text-gray-800 mb-6">1. Input Field</h3>
+            <div class="flex flex-col gap-6">
+              <vibecart-input 
+                label="ชื่อผู้ใช้" 
+                placeholder="กรอกชื่อผู้ใช้ของคุณ" 
+                [(value)]="inputText"
+              />
+              <vibecart-input 
+                label="อีเมล (มีข้อผิดพลาด)" 
+                placeholder="example@mail.com" 
+                error="รูปแบบอีเมลไม่ถูกต้อง"
+              />
+              <vibecart-input 
+                label="รหัสผ่าน (Disabled)" 
+                type="password"
+                placeholder="••••••••" 
+                [disabled]="true"
+              />
+            </div>
+            <p class="mt-4 text-sm text-gray-500">ค่าปัจจุบัน: {{ inputText() }}</p>
+        </div>
+
+        <!-- Checkbox Section -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="h4 text-gray-800 mb-6">2. Checkbox</h3>
+            <div class="flex flex-col gap-4">
+              <vibecart-checkbox label="ยอมรับเงื่อนไขการใช้งาน" [(checked)]="isChecked" />
+              <vibecart-checkbox label="จดจำฉันในระบบ" [checked]="true" />
+              <vibecart-checkbox label="รับข่าวสารผ่านอีเมล (Disabled)" [disabled]="true" />
+            </div>
+            <p class="mt-4 text-sm text-gray-500">สถานะ: {{ isChecked() ? 'เลือกแล้ว' : 'ยังไม่ได้เลือก' }}</p>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 md:col-span-2">
+            <h3 class="h4 text-gray-800 mb-6">3. Tabs</h3>
+            <vibecart-tabs [options]="tabOptions" [(activeTab)]="activeTab" />
+            <div class="mt-6 p-10 bg-gray-50 rounded-lg text-center text-gray-500 border border-dashed border-gray-200">
+              เนื้อหาของ Tab: {{ activeTab() }}
+            </div>
+        </div>
+
+        <!-- Steps Section -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 md:col-span-2">
+            <h3 class="h4 text-gray-800 mb-6">4. Steps</h3>
+            <vibecart-steps [steps]="steps" [currentStep]="currentStep()" />
+            
+            <div class="flex gap-4 mt-10 justify-center">
+              <button 
+                (click)="currentStep.set(currentStep() - 1)" 
+                [disabled]="currentStep() === 0"
+                class="px-4 py-2 bg-gray-100 rounded-lg disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+              >
+                ย้อนกลับ
+              </button>
+              <button 
+                (click)="currentStep.set(currentStep() + 1)" 
+                [disabled]="currentStep() === steps.length - 1"
+                class="px-4 py-2 bg-brand-primary text-white rounded-lg disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+              >
+                ถัดไป
+              </button>
+            </div>
+        </div>
+
+        <!-- Select Section -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="h4 text-gray-800 mb-6">5. Selector</h3>
+            <div class="flex flex-col gap-6">
+              <vibecart-select 
+                label="ค้นหาในหมวดหมู่" 
+                [options]="selectOptions" 
+                [(value)]="selectedCategory"
+              />
+              
+              <vibecart-select 
+                label="ตัวเลือก (Disabled)" 
+                [options]="selectOptions" 
+                [disabled]="true"
+              />
+            </div>
+            <p class="mt-4 text-sm text-gray-500">ค่าที่เลือก: {{ selectedCategory() }}</p>
+        </div>
+        
+      </div>
+    </section>
+  
+  
+    <section class="mb-20">
+      <h2 class="h2 text-brand-secondary border-b-2 border-gray-200 pb-4 mb-8">
+        🚀 Champ's Components
+      </h2>
+
+      <!-- Navbar -->
+      <div class="flex flex-col gap-4 mb-4">
+          <h3 class="h4 text-gray-600">1. Navbar</h3>
+          <div class="-mx-10">
+            <app-navbar />
+          </div>
+      </div>
+
+      <!-- Button -->
+      <div class="flex flex-col gap-4">
+        <h3 class="h4 text-gray-600 mb-4">2. Button</h3>
+        <!-- Type -->
+        <div class="space-y-8">
+          <div class="flex flex-wrap items-center gap-4">
+            <app-button text="Primary" type="primary"></app-button>
+            <app-button text="Secondary" type="secondary"></app-button>
+            <app-button text="Destructive" type="destructive"></app-button>
+            <app-button text="Ghost" type="ghost"></app-button>
+          </div>
+
+          <!-- Size -->
+          <div class="flex flex-wrap items-end gap-4">
+            <app-button text="Small Button" size="sm"></app-button>
+            <app-button text="Medium Button" size="md"></app-button>
+            <app-button text="Large Button" size="lg"></app-button>
+          </div>
+
+          <!-- State -->
+          <div class="flex flex-wrap items-center gap-4">
+            <app-button text="Processing..." [isLoading]="true"></app-button>
+            <app-button text="Disabled Button" [isDisabled]="true"></app-button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex flex-col gap-4 mt-10 w-fit">
+        <h3 class="h4 text-gray-600 mb-4">3. Pagination</h3>
+        <div class="flex flex-col justify-center items-center gap-4 p-6 bg-white rounded-lg">
+          <p class="text-gray-500">Current Page: {{ currentPage() }} / 20</p>
+          <app-pagination 
+            [currentPage]="currentPage()" 
+            [totalPages]="8" 
+            (pageChange)="currentPage.set($event)"
+          ></app-pagination>
+        </div>
+      </div>
+      <!-- Banner Carousel -->
+      <div class="flex flex-col gap-4 mt-10 w-fit">
+        <h3 class="h4 text-gray-600 mb-4">4. Banner Carousel</h3>
+        <div class="flex flex-col justify-center items-center gap-4 p-2 bg-white rounded-lg">
+          <app-banner-carousel [images]="adImages()"></app-banner-carousel>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Footer -->
+    <div class="-mx-10">
+      <app-footer />
+    </div>
+  </div>
